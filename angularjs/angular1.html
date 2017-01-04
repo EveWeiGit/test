@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>10进制转2进制</title> 
+	<link rel="stylesheet" href=""> 
+	<script src="angular.min.js"></script>
+	
+</head> 
+<body >
+	<div ng-app="myApp" ng-controller="myCtrl">
+名字: <input ng-model="num" type="number">
+<h1>你输入的数字转换为2进制为: {{num.toString(2)}}</h1>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.num=225;
+});
+</script>
+</body>
+</html>

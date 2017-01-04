@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>自定义指令</title>
+	<link rel="stylesheet" href="">
+	<script src="angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+	<rundirect></rundirect>
+	<script>
+		var app=angular.module("myApp",[]);
+		app.directive("rundirect",function(){
+			return {
+				template:"<h3>自定义指令</h3>"
+			};
+		});
+	</script>
+</body>
+</html>

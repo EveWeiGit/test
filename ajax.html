@@ -1,0 +1,88 @@
+
+// var request=new XMLHttpRequest();
+
+// request.open(method,url,async); 
+
+// setRequestHeader(“Content-type”,”application/x-www-form-urlencoded”);
+
+// send(string);  post下需要string
+
+// 取得响应值
+
+// 1.responseText:获取字符串形式的响应数据
+
+// 2.responseXML:获取XML形式的响应数据
+
+// 3.status和statusText:以数字和文本的形式返回HTTP状态码
+
+// 4.getAllResponseHeader():获取所有的响应报头
+
+// 5.getResponseHeader():获取响应中的某个字段信息
+
+
+// readyState属性:代表服务器响应变化
+// 0: 请求未初始化，open还未调用
+// 1: 已连接服务器，open已调用
+// 2: 请求已接收，已接收header信息，
+// 3: 请求处理中，也就是接收到响应主题
+// 4: 请求已完成，且响应已就绪，也就是响应完成了
+
+
+// 监听事件，根据readystate变化
+// var request=new XMLHttpRequest();
+// request.open("get","get.php",true); 
+// request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+// request.send();
+// request.onreadystatechange=function(){
+
+//      if(request.readyState===4 && request.status===200){
+
+//          document.getElementById("searchResult").innerHTML=request.responseText;//request.responseText
+
+//   }else{
+// alert("发生错误："+request.status);
+// }
+
+// }
+
+// jquery 代码：
+//  $(document).ready(function(){
+//  	$("#search").click(function(){
+//  		$.ajax({
+//  			type:"GET",
+//  			url:"http://get.php?number="+$("#keyword").val(),
+//  			dataTYpe:"json",
+//  			success:function(data){
+//  				if(data.success){
+//  					$("#searchResult").html(data.msg);
+//  				}else{
+//  					$("#searchResult").html("出现错误：" +data.msg);
+//  				}
+//  			},
+//  			error:function(jqXHR){
+//  				alert("发生错误"+jqXHR.status);
+//  			}
+//  		});
+//  	});
+//  });
+
+
+// ajax通用方法
+    easyAjax(option,callback){
+        $.ajax(
+            $.extend({
+                url: '/activity/rihangnanhang/ewjfHandler.ashx',
+                type: 'GET',
+                dataType: 'json',
+                error(err){
+                    console.log(err);
+                },
+                complete(){
+                    console.log('complete');
+                },
+                success(data){
+                    callback(data);
+                }
+            },option)
+        );
+    }

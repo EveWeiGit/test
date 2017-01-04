@@ -1,0 +1,76 @@
+<body>
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<input id="verity_code" type="text" style="border:1px solid red">
+<button onclick="sendVerityRqt();" id="testbtn" disabled="true" type="button">获取验证码</button>
+
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            url: "/instance.php",
+            type: "post",
+            data:{'type':1},
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                // var response = eval(data);
+                // console.log(response);
+                setCookie('validatecode',data.validatecode);
+                //judge 1 or 0
+                //if 1 =＞　btn.disable = false
+                if (data.status == 1) {
+                    $('#testbtn').removeAttr('disabled');
+                }
+            },
+            error: function () { 
+
+            },
+            complete: function () {
+
+            }
+        });
+    });
+
+   function sendVerityRqt()
+    {
+        var validatecode = getCookie('validatecode');
+        //获取验证码
+        $.ajax({
+            url: "/instance.php?id=2",
+            type: "post",
+            data:{type:5,authcode:'sdfsdf',validate:validatecode},
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+            },
+            error: function () {
+
+            },
+            complete: function () {
+
+            }
+        });
+    }
+    // setCookie('laotansuancai','sdfsdfdsfdsf');
+    //写cookies 
+
+function setCookie(name,value) 
+{ 
+    var Days = 30; 
+    var exp = new Date(); 
+    exp.setTime(exp.getTime() + Days*24*60*60*1000); 
+    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString(); 
+} 
+
+//读取cookies 
+function getCookie(name) 
+{ 
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+ 
+    if(arr=document.cookie.match(reg))
+ 
+        return unescape(arr[2]); 
+    else 
+        return null; 
+} 
+</script>
+</body>

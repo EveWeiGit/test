@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.head {
+  width: auto;
+  height: 100px;
+  background-color: #212121;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+}
+.head ul.navul {
+  display: inline-block;
+  line-height: 100px;
+}
+.head ul.navul li {
+  padding-left: 50px;
+  float: left;
+  list-style-type: none;
+}
+.head ul.navul a {
+  text-decoration: none;
+}
+.inputbox {
+  border-radius: 8px;
+}
+.dropdown {
+  position: relative;
+}
+.down {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 150px;
+  padding: 2px 10px;
+  color: grey;
+  line-height: 50px;
+}
+.dropdown:hover .down {
+  display: block;
+}
+.Maincontent {
+  width: auto;
+  height: 800px;
+  background-color: #E6E6E6;
+}
+.Maincontent .left {
+  float: left;
+  width: 30%;
+  height: 800px;
+  background-color: grey;
+}
+.Maincontent .left .box1 {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #212121;
+  display: inline-block;
+  box-shadow: 10px 10px 5px #888888;
+}
+.Maincontent .right {
+  float: right;
+  width: 70%;
+  background-color: #E6E6E6;
+}
+.Maincontent .right .box2 {
+  float: right;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #212121;
+  display: inline-block;
+  box-shadow: 5px 5px 20px #888888;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+.foot {
+  width: auto;
+  height: 100px;
+  background-color: #212121;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+}
+.foot ul.footul {
+  display: inline-block;
+  line-height: 100px;
+}
+.foot ul.footul li {
+  padding-left: 50px;
+  float: left;
+  list-style-type: none;
+}
+.foot ul.footul a {
+  text-decoration: none;
+}
+.foot ul.footul a:hover {
+  font-size: 20px;
+}
